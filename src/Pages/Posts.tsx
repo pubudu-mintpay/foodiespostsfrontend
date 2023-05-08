@@ -1,6 +1,8 @@
 import UserDataBox from "../Components/UserDataBox.tsx";
 import PostPreview from "../Components/PostPreview.tsx";
 import LikeBox from "../Components/LikeBox.tsx";
+import {useState} from "react";
+import CommentBox from "../Components/CommentBox.tsx";
 
 const Posts = () => {
 
@@ -13,8 +15,9 @@ const Posts = () => {
         likedUsers: [222],
         commentIDArray: [222, 333, 444],
         imageIDArray: [222, 333, 444, 1111112],
-
     }
+
+    const [likedUsers, setLikedUsers] = useState<number[]>(data.likedUsers)
 
     const USER = {
         id: 233231,
@@ -90,25 +93,16 @@ const Posts = () => {
 
         const myUserId = localStorage.getItem('userId');
 
-
         if (!myUserId || isNaN(parseInt(myUserId))) {
             return;
         }
 
+        if (likedUsers.find((userId) => userId.toString() === myUserId)) {
+            setLikedUsers(likedUsers.filter((userId) => userId.toString() !== myUserId))
 
-        if (data.likedUsers.find((userId) => userId.toString() === myUserId)) {
-            data.likedUsers = data.likedUsers.filter((userId) => userId.toString() !== myUserId)
         } else {
-            const myUserId_number = parseInt(myUserId);
-
-            const newLikedUsers = data.likedUsers.push(myUserId_number)
-
-            data = {
-                ...data,
-                likedUsers: newLikedUsers
-            }
+            setLikedUsers((prev) => [...prev, parseInt(myUserId)])
         }
-
 
     }
 
@@ -119,9 +113,12 @@ const Posts = () => {
                     profilePic={USER.profilePicUrl}
                     userId={USER.id} name={USER.name} username={USER.username}/>
                 <PostPreview data={getPicturesById()}/>
-                <LikeBox
-                    likeThisPost={likeThisPost}
-                    likes={data.likes} likedUsers={data.likedUsers}/>
+                <div className={`flex flex-row items-center space-x-4`}>
+                    <LikeBox
+                        likeThisPost={likeThisPost}
+                        likes={likedUsers.length} likedUsers={likedUsers}/>
+                    <CommentBox comments={COMMENTS}/>
+                </div>
             </div>
         </div>
     );

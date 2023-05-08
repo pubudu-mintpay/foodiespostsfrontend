@@ -68,8 +68,8 @@ const Layout = ({children}: ILayoutProps) => {
                                 className="-m-1.5 p-1.5">
                                 <span className="sr-only">Your Company</span>
                                 <img
-                                    className="h-8 w-auto"
-                                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                                    className="h-8 w-auto rotate-180"
+                                    src="https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Facebook_f_logo_%282021%29.svg/1024px-Facebook_f_logo_%282021%29.svg.png"
                                     alt=""
                                 />
                             </span>

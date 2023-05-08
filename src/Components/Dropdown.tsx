@@ -10,8 +10,7 @@ const Dropdown = () => (
     <Menu as="div" className="relative inline-block text-left">
         <div>
             <Menu.Button
-                className="flex items-center rounded-full  text-gray-400 hover:text-gray-600 focus:outline-none
-                 ">
+                className="flex items-center rounded-full  text-gray-400 hover:text-gray-600 focus:outline-none">
                 <span className="sr-only">Open options</span>
                 <EllipsisHorizontalIcon className="h-8 w-8" aria-hidden="true"/>
             </Menu.Button>
