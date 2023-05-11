@@ -10,6 +10,7 @@ import Layout from "./Components/Layout.tsx";
 import Homepage from "./Pages/Homepage.tsx";
 import Account from "./Pages/Account.tsx";
 import Posts from "./Pages/Posts.tsx";
+import AddPost from "./Pages/AddPost.tsx";
 
 const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
         path: "/account",
         element: <Account/>,
     },
+    {
+        path: "/add-post",
+        element: <AddPost/>,
+    }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

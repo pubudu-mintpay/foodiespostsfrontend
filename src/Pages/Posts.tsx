@@ -13,7 +13,7 @@ const Posts = () => {
         date: '2021-09-01',
         likes: 0,
         likedUsers: [222],
-        commentIDArray: [222, 333, 444],
+        commentIDArray: [222, 333, 444],//
         imageIDArray: [222, 333, 444, 1111112],
     }
 
